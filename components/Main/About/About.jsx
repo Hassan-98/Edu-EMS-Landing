@@ -4,6 +4,11 @@ import Image from "next/image"
 import cls from "./About.module.scss"
 
 const About = () => {
+  
+  const handleClick = () => {
+    window.location.hash = "#Contact"
+  }
+
   return (
     <Container component="section" id="About" className={cls.about}>
       <Grid container>
@@ -28,7 +33,7 @@ const About = () => {
             <img src="/imgs/customizable.png" alt="customizable icon" />
           </Tooltip>
           </Box>
-          <Button variant="outlined" color="primary" className={cls.request__button}>
+          <Button variant="outlined" color="primary" className={cls.request__button} onClick={handleClick}>
             <i className="fi fi-rr-cloud-check" style={{ margin: '3px 5px 0 0' }}></i>
             Request Demo Version
           </Button>

@@ -2,6 +2,11 @@ import cls from "../Plans.module.scss";
 import { Typography, Grid, Card, CardActions, CardContent, Box, Button } from '@mui/material';
 
 const PlanCard = ({ xs, sm, md, title, description, features, colored }) => {
+  
+  const handleClick = () => {
+    window.location.hash = "#Contact"
+  }
+
   return (
     <Grid item xs={xs} sm={sm} md={md}>
       <Card variant="outlined" className={`${cls.card__section} ${colored && cls.colored__background}`}>
@@ -21,7 +26,7 @@ const PlanCard = ({ xs, sm, md, title, description, features, colored }) => {
           </Box>
         </CardContent>
         <CardActions>
-          <Button className={cls.request__button} variant="outlined" color="primary" disableElevation> Request </Button>
+          <Button className={cls.request__button} variant="outlined" color="primary" disableElevation onClick={handleClick}> Request </Button>
         </CardActions>
       </Card>
     </Grid>

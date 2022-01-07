@@ -1,9 +1,13 @@
-import Image from "next/image"
 import { Box, Container, Typography, Button } from "@mui/material"
 import Navbar from "../navbar/navbar"
 import cls from "./header.module.scss"
 
 const Header = () => {
+  
+  const handleClick = () => {
+    window.location.hash = "#Contact"
+  }
+
   return (
     <Box component="header" className={cls.header__component} sx={{ bgcolor: 'primary.main' }}>
       <Navbar />
@@ -11,7 +15,7 @@ const Header = () => {
         <Typography variant="h1" className={cls.header__text}>Edu EMS System</Typography>
         {/* eslint-disable-next-line */}
         <img src="/imgs/Gallery/1.png" alt="edu ems" className={cls.header__image} />
-        <Button className={cls.header__button}>
+        <Button className={cls.header__button} onClick={handleClick}>
           <i className="fi fi-rr-cloud-check"></i>
           Request Demo Version
         </Button>
