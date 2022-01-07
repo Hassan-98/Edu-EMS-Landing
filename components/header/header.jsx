@@ -10,7 +10,7 @@ const Header = () => {
       <Container className={cls.header__container} sx={{color: 'text.white'}}>
         <Typography variant="h1" className={cls.header__text}>Edu EMS System</Typography>
         {/* eslint-disable-next-line */}
-        <img src="/imgs/gallery/1.png" alt="edu ems" className={cls.header__image} />
+        <img src="/imgs/Gallery/1.png" alt="edu ems" className={cls.header__image} />
         <Button className={cls.header__button}>
           <i className="fi fi-rr-cloud-check"></i>
           Request Demo Version
