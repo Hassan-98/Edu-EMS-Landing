@@ -1,0 +1,44 @@
+html,
+body {
+  padding: 0!important;
+  margin: 0;
+  font-family: "SpaceGrotesk";
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: rgba($color: #0C3990, $alpha: 0.8);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Add Space Grotesk Font
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("../public/fonts/SpaceGrotesk-Light.ttf");
+}
+
+@font-face {
+  font-family: "SpaceGrotesk-Bold";
+  src: url("../public/fonts/SpaceGrotesk-Bold.ttf");
+}
+
+// Add Little Groovy Font
+@font-face {
+  font-family: "LittleGroovyRegular";
+  src: url("../public/fonts/LittleGroovyDemoRegular.ttf");
+}

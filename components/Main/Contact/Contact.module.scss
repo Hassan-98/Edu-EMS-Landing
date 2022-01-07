@@ -1,0 +1,159 @@
+@import "../../../styles/mixins.scss";
+
+.contact {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @include md {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @include sm {
+    padding-top: 20px;
+  }
+
+  .section__title {
+    margin-bottom: 15px;
+    font-family: "LittleGroovyRegular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2rem;
+    &::before {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 10px 0 0 10px;
+      margin-right: 10px;
+      position: relative;
+      top: -3px;
+    }
+    &::after {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 0 10px 10px 0;
+      margin-left: 10px;
+      position: relative;
+      top: -3px;
+    }
+
+    @include sm {
+      font-size: 1.5rem;
+      &::before {
+        width: 50px;
+      }
+      &::after {
+        width: 50px;
+      }
+    }
+  }
+
+  .section__description {
+    margin-bottom: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+
+    @include sm {
+      font-size: 0.85rem;
+      margin-bottom: 28px;
+    }
+
+    @include xs {
+      font-size: 0.75rem;
+      margin-bottom: 28px;
+    }
+  }
+
+  .contact__box {
+    padding: 2rem;
+    border: 1px solid #0c39904d;
+    border-radius: 5px;
+    text-align: center;
+
+    .box__icon {
+      box-sizing: border-box;
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      line-height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      position: relative;
+
+      &::after {
+        content: "";
+        box-sizing: border-box;
+        width: 70px;
+        height: 70px;
+        border: 1px dashed #0c39904d;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        animation: rotation 10s linear infinite;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        &::after {
+          border-style: solid;
+          animation: none;
+          box-shadow: 0 5px 5px rgba($color: #0c3990, $alpha: 0.5);
+        }
+      }
+
+      i {
+        color: #0c3990;
+        font-size: 38px;
+      }
+    }
+  }
+
+  .contact__form {
+    padding: 50px 0;
+    width: 100%;
+
+    @include sm {
+      padding: 20px 0;
+    }
+
+    fieldset {
+      border-color: #0c39904d;
+    }
+
+    input {
+      width: 100%;
+    }
+    
+    .contact__button {
+      font-size: 16px;
+      padding: 10px 80px;
+      border-color: #0c39904d;
+
+      @include sm {
+        padding: 10px 40px;
+        width: 100%;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

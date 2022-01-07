@@ -1,0 +1,167 @@
+@import "../../../styles/mixins.scss";
+
+.plans {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @include md {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @include sm {
+    padding-top: 20px;
+  }
+
+  .section__title {
+    margin-bottom: 15px;
+    font-family: "LittleGroovyRegular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2rem;
+    &::before {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 10px 0 0 10px;
+      margin-right: 10px;
+      position: relative;
+      top: -3px;
+    }
+    &::after {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 0 10px 10px 0;
+      margin-left: 10px;
+      position: relative;
+      top: -3px;
+    }
+
+    @include sm {
+      font-size: 1.5rem;
+      &::before {
+        width: 50px;
+      }
+      &::after {
+        width: 50px;
+      }
+    }
+  }
+
+  .section__description {
+    margin-bottom: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.3rem;
+
+    @include sm {
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+  }
+
+  .card__section {
+    border-color: #0c3990;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-10px);
+    }
+
+    .plan__title {
+      font-family: "LittleGroovyRegular";
+      font-weight: bold;
+      margin-bottom: 8px;
+
+      @include sm {
+        font-size: 20px;
+      }
+    }
+
+    .plan__description {
+      margin-bottom: 16px;
+
+      @include sm {
+        font-size: 15px;
+      }
+    }
+
+    hr {
+      border: none;
+      width: 100%;
+      height: 1px;
+      background-color: #eee;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+
+    .plan__features {
+      text-align: left;
+      padding-left: 24px;
+
+      @include lg {
+        padding-left: 12px;
+      }
+
+      @include md {
+        padding-left: 0px;
+      }
+
+      .plan__feature {
+        padding: 10px 0;
+        font-size: 15px;
+
+        @include sm {
+          font-size: 14px;
+          padding: 7px 0;
+        }
+  
+        i {
+          margin-right: 10px;
+          color: red;
+          &.checked {
+            color: green;
+          }
+        }
+      }
+
+    }
+
+    .request__button {
+      margin: 15px auto 0;
+      padding: 5px 50px;
+      font-size: 18px;
+      font-weight: bold;
+
+      @include sm {
+        font-size: 16px;
+      }
+    }
+
+    &.colored__background {
+      background-color: #0c3990;
+      color: #fff;
+
+      hr {
+        background-color: #0a3283;
+      }
+
+      .request__button {
+        color: #fff;
+        border-color: #fff;
+        font-weight: 100;
+      }
+    }
+
+  }
+
+}

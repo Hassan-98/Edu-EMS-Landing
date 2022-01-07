@@ -1,0 +1,19 @@
+@import "../../styles/mixins.scss";
+
+.footer {
+  padding: 90px 0 60px;
+  color: #fff;
+  background-color: #0C3990;
+  clip-path: ellipse(72% 61% at 43% 72%);
+  text-align: center;
+
+  .footer__text {
+    font-size: 2rem;
+    @include sm {
+      font-size: 1.5rem;
+    }
+    @include xs {
+      font-size: 1.3rem;
+    }
+  }
+}

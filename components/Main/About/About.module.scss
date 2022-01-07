@@ -1,0 +1,36 @@
+@import "../../../styles/mixins.scss";
+
+.about {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @include md {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @include sm {
+    padding-top: 20px;
+  }
+
+  .presentaion__icons {
+    margin-bottom: 20px;
+    img {
+      margin: 5px 40px 10px 0;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+
+      &:last-child {
+        width: 42px;
+        height: 42px;
+      }
+
+      @include xxs {
+        margin: 5px 30px 10px 0;
+      }
+    }
+  }
+
+  .request__button {
+    padding: 5px 25px;
+  }
+}

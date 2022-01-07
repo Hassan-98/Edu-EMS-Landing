@@ -1,0 +1,82 @@
+@import "../../styles/mixins.scss";
+
+.navbar {
+  padding: 5px 10px!important;
+  border-bottom: 1px solid #032e81;
+
+  .navbar__logo {
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .navbar__navlink {
+    margin: 10px 1px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include lg {
+      padding: 5px 10px;
+    }
+
+    &:hover, &.active {
+      background: #fff;
+      color: #0C3990;
+    }
+
+    i {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  .navbar__toggler {
+    cursor: pointer;
+    color: #fff;
+  }
+
+  &.navbar_scroll {
+    padding: 0 10px!important;
+    border-bottom: none;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    .navbar__navlink {
+      color: #0C3990;
+      &:hover, &.active {
+        background: #0C3990;
+        color: #fff;
+      }
+    }
+
+    .navbar__toggler {
+      color: #0C3990;
+    }
+  }
+}
+
+.navbar__navlink_mobile {
+  width: 250px;
+  color: #0C3990;
+  padding: 10px 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+
+  @include sm {
+    width: 200px;
+  }
+
+  &:hover, &.active {
+    background: #0C3990;
+    color: #fff;
+  }
+
+  i {
+    width: 40px;
+    position: relative;
+    top: -2px;
+  }
+}

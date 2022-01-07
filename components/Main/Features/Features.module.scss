@@ -1,0 +1,90 @@
+@import "../../../styles/mixins.scss";
+
+.features {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  @include md {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @include sm {
+    padding-top: 20px;
+  }
+
+  .section__title {
+    margin-bottom: 15px;
+    font-family: "LittleGroovyRegular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 2rem;
+    &::before {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 10px 0 0 10px;
+      margin-right: 10px;
+      position: relative;
+      top: -3px;
+    }
+    &::after {
+      content: "";
+      width: 100px;
+      height: 7px;
+      background-color: #0c39904d;
+      border-radius: 0 10px 10px 0;
+      margin-left: 10px;
+      position: relative;
+      top: -3px;
+    }
+
+    @include sm {
+      font-size: 1.5rem;
+      &::before {
+        width: 50px;
+      }
+      &::after {
+        width: 50px;
+      }
+    }
+  }
+
+  .section__description {
+    margin-bottom: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+
+    @include sm {
+      font-size: 0.85rem;
+      margin-bottom: 28px;
+    }
+
+    @include xs {
+      font-size: 0.75rem;
+      margin-bottom: 28px;
+    }
+  }
+
+  .feature {
+    background-color: #0c3990;
+    border-radius: 8px;
+    width: 100%;
+    padding: 20px;
+    padding-left: 0;
+    color: #fff;
+    align-items: center;
+
+    .feature__icon {
+      text-align: center;
+
+      i {
+        font-size: 34px;
+      }
+    }
+  }
+}

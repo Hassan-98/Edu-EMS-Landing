@@ -1,0 +1,6 @@
+export { default as About } from "./About/About.jsx"
+export { default as FAQ } from "./FAQ/FAQ.jsx"
+export { default as Contact } from "./Contact/Contact.jsx"
+export { default as Features } from "./Features/Features.jsx"
+export { default as Gallery } from "./Gallery/Gallery.jsx"
+export { default as Plans } from "./Plans/Plans.jsx"

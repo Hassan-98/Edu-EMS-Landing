@@ -1,0 +1,22 @@
+.header__divider{
+  overflow:hidden;
+  position:relative;
+  top: -2px;
+  height: 150px;
+
+  &::before{ 
+    content:'';
+    font-family:'shape divider from ShapeDividers.com';
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    bottom: -0.1vw;
+    left: -0.1vw;
+    right: -0.1vw;
+    top: -0.1vw; 
+    background-size: 100% 123px;
+    background-position: 50% 0%;  
+    background-image: url('data:image/svg+xml;charset=utf8, <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="%230c3990"><path d="M0 0v11s177 85 500 85 500-84 500-84V0z" opacity=".3"/><path d="M0-1s177 90 500 90 500-89 500-89z" opacity=".5"/><path d="M0 0v13s177 62 500 62 500-61 500-61V0z"/></g></svg>'); 
+  }
+}
