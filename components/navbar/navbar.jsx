@@ -71,6 +71,10 @@ const Navbar = () => {
     setDrawerOpend(false)
   }
 
+  const goToDashboard = () => {
+    window.open("https://my.edu-ems.cf", "_blank")
+  }
+
   return (
     <AppBar
       className={isNavInTop ? `${cls.navbar}` : `${cls.navbar} ${cls.navbar_scroll}`}
@@ -109,6 +113,14 @@ const Navbar = () => {
               ))
             }
           </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 3 }}>
+            <Typography onClick={goToDashboard} sx={{ color: 'text.white' }} className={cls.navbar__navlink}>
+              <IconButton size="small" color="inherit" sx={{ mr: 1, p: 0 }}>
+                <i className="fa-thin fa-arrow-right-to-bracket"></i>
+              </IconButton>
+              Login
+            </Typography>
+          </Box>
 
           {/* Mobile Screens */}
           {/* App Logo */}
@@ -131,7 +143,7 @@ const Navbar = () => {
               onClose={() => setDrawerOpend(false)}
               onOpen={() => setDrawerOpend(true)}
             >
-              <Box sx={{ p: 2 }}>
+              <Box sx={{ px: 2 }}>
                 {
                   pages.map((page) => (
                     <Typography key={page.title} onClick={() => goToSection(page.path)} sx={{ color: 'text.primary' }} className={cls.navbar__navlink_mobile}>
@@ -142,6 +154,14 @@ const Navbar = () => {
                     </Typography>
                   ))
                 }
+              </Box>
+              <Box sx={{ p: 2 }}>
+                <Typography onClick={goToDashboard} sx={{ color: 'text.primary' }} className={cls.navbar__navlink_mobile}>
+                  <IconButton size="small" color="inherit" sx={{ mr: 1, p: 0 }}>
+                    <i className="fa-thin fa-arrow-right-to-bracket"></i>
+                  </IconButton>
+                  Login
+                </Typography>
               </Box>
             </SwipeableDrawer>
           </Box>

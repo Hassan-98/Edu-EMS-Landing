@@ -3,14 +3,15 @@ import cls from "../Contact.module.scss"
 import { Grid, TextField, MenuItem, Button } from '@mui/material';
 import { object, string, number, date } from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from "../../../../utils/axios"
 import 'react-toastify/dist/ReactToastify.css';
 
 let requestSchema = object({
   fullName: string().required("Please, provide your full name"),
   phone: number("Phone must be a number").required("Please, enter a phone number"),
   emailAddress: string().required("Please, enter a valid email address").email("Please, enter a valid email address"),
-  requestType: string().required("Request Type is required"),
-  requestDetails: string().required("Please, enter your request details").min(35, "Request details is too short"),
+  title: string().required("Request Type is required"),
+  details: string().required("Please, enter your request details").min(35, "Request details is too short"),
   createdOn: date().default(() => new Date()),
 });
 
@@ -19,8 +20,8 @@ const ContactUsForm = () => {
     fullName: '',
     emailAddress: '',
     phone: '',
-    requestType: '',
-    requestDetails: ''
+    title: '',
+    details: ''
   })
 
   const handleChange = (e) => {
@@ -34,14 +35,20 @@ const ContactUsForm = () => {
     e.preventDefault();
 
     try {
-      const res = await requestSchema.validate(FormData);
-      toast.success('Your Request Submitted');
+      await requestSchema.validate(FormData);
+
+      const { data: { err } } = await axios.post("/requests/program", FormData);
+
+      if (err) return toast.error(err);
+
+      toast.success('Your Request Submitted, Thank you for contacting us');
+
       setFormData({
         fullName: '',
         emailAddress: '',
         phone: '',
-        requestType: '',
-        requestDetails: ''
+        title: '',
+        details: ''
       })
     } catch (e) {
       toast.error(e.message);
@@ -88,27 +95,27 @@ const ContactUsForm = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <TextField
-              name="requestType"
+              name="title"
               label="Request Type"
               variant="outlined"
               color="primary"
               select
-              value={FormData.requestType}
+              value={FormData.title}
               onChange={handleChange}
               sx={{ width: '100%' }}
             >
-              <MenuItem value="RequestDemoVersion" id="requestType">Request Demo Version</MenuItem>
-              <MenuItem value="RequestFullVersion">Request Full Version</MenuItem>
-              <MenuItem value="ContactUs">Contact Us</MenuItem>
+              <MenuItem value="Request Demo Version">Request Demo Version</MenuItem>
+              <MenuItem value="Request Full Version">Request Full Version</MenuItem>
+              <MenuItem value="Contact Us">Contact Us</MenuItem>
             </TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
-              name="requestDetails"
+              name="details"
               label="Request Details"
               variant="outlined"
               color="primary"
-              value={FormData.requestDetails}
+              value={FormData.details}
               onChange={handleChange}
               sx={{ width: '100%' }}
               multiline
