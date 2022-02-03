@@ -5,6 +5,7 @@ import PlanCard from "./Plan/Card";
 const plans = [
   {
     title: "Demo Ver",
+    price: 0,
     description: "Demo version of the system with limited capabilities",
     features: [
       {
@@ -31,6 +32,7 @@ const plans = [
   },
   {
     title: "Full Ver",
+    price: 149,
     description: "Full version of the system ready to be used in your center",
     features: [
       {
@@ -57,6 +59,7 @@ const plans = [
   },
   {
     title: "Source Code",
+    price: 999,
     description: "Full version with the source code, ready to be customized",
     features: [
       {
@@ -95,6 +98,7 @@ const Plans = () => {
           sm={6}
           md={4}
           title={plans[0].title}
+          price={plans[0].price}
           description={plans[0].description}
           features={plans[0].features}
         />
@@ -103,6 +107,7 @@ const Plans = () => {
           sm={6}
           md={4}
           title={plans[1].title}
+          price={plans[1].price}
           description={plans[1].description}
           features={plans[1].features}
           colored
@@ -112,6 +117,7 @@ const Plans = () => {
           sm={12}
           md={4}
           title={plans[2].title}
+          price={plans[2].price}
           description={plans[2].description}
           features={plans[2].features}
         />

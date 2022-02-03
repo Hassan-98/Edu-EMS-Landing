@@ -7,7 +7,7 @@ const FAQ = () => {
       <section id="FAQ" className={cls.faq}>
       <div className={cls.section__divider_top}></div>
         <Box sx={{ bgcolor: 'primary.main' }}>
-          <Container maxWidth="md" sx={{ alignItems: "center", display: 'flex', flexWrap: 'wrap' }}>
+          <Container maxWidth="md" sx={{ alignItems: "center", display: 'flex', flexWrap: 'wrap', py: { xs: '30px', md: '10px' } }}>
             <Typography component="h2" className={cls.section__title}>FAQ</Typography>
             <Typography variant="body1" component="p" className={cls.section__description}>Frequently Asked Questions</Typography>
 

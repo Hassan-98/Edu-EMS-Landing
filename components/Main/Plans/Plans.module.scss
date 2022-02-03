@@ -87,6 +87,15 @@
       }
     }
 
+    .plan__price {
+      font-family: "SpaceGrotesk-Bold";
+      font-weight: bold;
+
+      sup {
+        font-size: 2rem;
+      }
+    }
+
     .plan__description {
       margin-bottom: 16px;
 
