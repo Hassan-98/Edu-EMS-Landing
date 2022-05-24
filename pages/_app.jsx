@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from "next/head"
 import { appWithTranslation } from "next-i18next";
+import Cookies from "universal-cookie";
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
 import ThemeProvider from '../theme/theme';
@@ -10,6 +11,13 @@ import "../public/css/all.min.css"
 
 const App = ({ Component, pageProps }) => {
   const [locale] = useState(pageProps?._nextI18Next?.initialLocale || 'en');
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    if (!cookies.get("NEXT_LOCALE")) {
+      cookies.set("NEXT_LOCALE", locale, { path: "/" });
+    }
+  }, []);
 
   useEffect(() => {
     if(locale === 'ar') {
