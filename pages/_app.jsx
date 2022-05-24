@@ -9,7 +9,7 @@ import "../public/css/uicons-regular-rounded.css"
 import "../public/css/all.min.css" 
 
 const App = ({ Component, pageProps }) => {
-  const [locale] = useState(pageProps._nextI18Next.initialLocale);
+  const [locale] = useState(pageProps?._nextI18Next?.initialLocale || 'en');
 
   useEffect(() => {
     if(locale === 'ar') {
