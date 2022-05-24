@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import Head from "next/head"
+import { appWithTranslation } from "next-i18next";
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
 import ThemeProvider from '../theme/theme';
@@ -7,6 +9,16 @@ import "../public/css/uicons-regular-rounded.css"
 import "../public/css/all.min.css" 
 
 const App = ({ Component, pageProps }) => {
+  const [locale] = useState(pageProps._nextI18Next.initialLocale);
+
+  useEffect(() => {
+    if(locale === 'ar') {
+      document.querySelector(":root").style.setProperty('--font', 'BalooBhaijaan2');
+    } else {
+      document.querySelector(":root").style.setProperty('--font', 'SpaceGrotesk');
+    }
+  }, [locale, pageProps]);
+
   return (
     <>
       <Head>
@@ -15,13 +27,15 @@ const App = ({ Component, pageProps }) => {
         <meta name="description" content="Edu. E.M.S System - Landing Page" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider>
-        <Header />
-          <Component {...pageProps} />
-        <Footer />
+      <ThemeProvider locale={locale}>
+        <div id={locale}>
+          <Header />
+            <Component {...pageProps} />
+          <Footer />
+        </div>
       </ThemeProvider>
     </>
   )
 }
 
-export default App
+export default appWithTranslation(App)

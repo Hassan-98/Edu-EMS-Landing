@@ -1,9 +1,10 @@
 import { useState } from "react";
-import cls from "../Contact.module.scss"
+import { useTranslation } from 'next-i18next';
 import { Grid, TextField, MenuItem, Button } from '@mui/material';
 import { object, string, number, date } from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "../../../../utils/axios"
+import cls from "../Contact.module.scss";
 import 'react-toastify/dist/ReactToastify.css';
 
 let requestSchema = object({
@@ -16,6 +17,8 @@ let requestSchema = object({
 });
 
 const ContactUsForm = () => {
+  const { t: translate, i18n: { language } } = useTranslation('common');
+
   const [FormData, setFormData] = useState({
     fullName: '',
     emailAddress: '',
@@ -63,7 +66,7 @@ const ContactUsForm = () => {
           <Grid item xs={12} md={6}>
             <TextField
               name="fullName"
-              label="Full Name"
+              label={translate('contact.form.name')}
               variant="outlined"
               color="primary"
               value={FormData.fullName}
@@ -74,7 +77,7 @@ const ContactUsForm = () => {
           <Grid item xs={12} md={6}>
             <TextField
               name="emailAddress"
-              label="Email Address"
+              label={translate('contact.form.email')}
               variant="outlined"
               color="primary"
               value={FormData.emailAddress}
@@ -85,7 +88,7 @@ const ContactUsForm = () => {
           <Grid item xs={12} md={6}>
             <TextField
               name="phone"
-              label="Phone"
+              label={translate('contact.form.phone')}
               variant="outlined"
               color="primary"
               value={FormData.phone}
@@ -96,7 +99,7 @@ const ContactUsForm = () => {
           <Grid item xs={12} md={6}>
             <TextField
               name="title"
-              label="Request Type"
+              label={translate('contact.form.reqType')}
               variant="outlined"
               color="primary"
               select
@@ -104,15 +107,18 @@ const ContactUsForm = () => {
               onChange={handleChange}
               sx={{ width: '100%' }}
             >
-              <MenuItem value="Request Demo Version">Request Demo Version</MenuItem>
-              <MenuItem value="Request Full Version">Request Full Version</MenuItem>
-              <MenuItem value="Contact Us">Contact Us</MenuItem>
+              <MenuItem value="Request Full Version">
+                { translate('contact.form.reqType.opt1') }
+              </MenuItem>
+              <MenuItem value="Contact Us">
+                { translate('contact.form.reqType.opt2') }
+              </MenuItem>
             </TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               name="details"
-              label="Request Details"
+              label={translate('contact.form.details')}
               variant="outlined"
               color="primary"
               value={FormData.details}
@@ -123,9 +129,9 @@ const ContactUsForm = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="outlined" className={cls.contact__button} onClick={submitRequest}>
+            <Button type="submit" variant="outlined" className={`${cls.contact__button} ${cls[language]}`} onClick={submitRequest}>
               <i className="fa-duotone fa-paper-plane-top"></i>
-              Send Request
+              { translate('contact.form.button') }
             </Button>
           </Grid>
         </Grid>

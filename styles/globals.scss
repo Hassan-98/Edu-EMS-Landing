@@ -11,6 +11,27 @@ body {
   margin: 0;
 }
 
+#ar {
+  *:not(i) {
+    font-family: "BalooBhaijaan2";
+    direction: rtl;
+    &.section_title {
+      font-weight: 900;
+    }
+  }
+}
+
+h2.section_title {
+  direction: ltr!important;
+}
+
+div[data-testid="carousel"] {
+  direction: ltr!important;
+  * {
+    direction: ltr!important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   background: transparent;
@@ -41,4 +62,10 @@ a {
 @font-face {
   font-family: "LittleGroovyRegular";
   src: url("../public/fonts/LittleGroovyDemoRegular.ttf");
+}
+
+// Add Baloo Bhaijaan 2 Font
+@font-face {
+  font-family: "BalooBhaijaan2";
+  src: url("../public/fonts/BalooBhaijaan2.ttf");
 }

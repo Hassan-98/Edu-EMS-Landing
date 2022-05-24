@@ -1,13 +1,18 @@
-import cls from "./Contact.module.scss"
-import { Container, Grid, Box, Typography, TextField } from '@mui/material';
-import ContactUsForm from "./ContactUsForm/ContactUsForm.jsx"
+import { useTranslation } from 'next-i18next';
+import { Container, Grid, Box, Typography } from '@mui/material';
+import ContactUsForm from "./ContactUsForm/ContactUsForm.jsx";
+import cls from "./Contact.module.scss";
 
 const Contact = () => {
+  const { t: translate, i18n: { language } } = useTranslation('common');
+
   return (
     <Container component="section" id="Contact" className={cls.contact}>
-      <Typography component="h2" color="primary" className={cls.section__title}>Contact Us</Typography>
+      <Typography component="h2" color="primary" className={`${cls.section__title} section_title`}>
+        { translate('contact.title') }
+      </Typography>
       <Typography variant="body1" color="primary" component="p" className={cls.section__description}>
-        Contact us to request demo or full version of the program
+        { translate('contact.desc') }
       </Typography>
 
       <Grid container spacing={3}>

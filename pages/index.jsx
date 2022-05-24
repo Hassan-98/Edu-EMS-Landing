@@ -1,5 +1,6 @@
-import cls from "./home.module.scss"
-import { About, Features, Gallery, Plans, FAQ, Contact } from "../components/Main"
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { About, Features, Gallery, Plans, FAQ, Contact } from "../components/Main";
+import cls from "./home.module.scss";
 
 const Home = () => {
   return (
@@ -15,6 +16,14 @@ const Home = () => {
       </main>
     </>
   )
+}
+
+export const getServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"]))
+    }
+  };
 }
 
 export default Home;

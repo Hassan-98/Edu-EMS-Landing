@@ -79,6 +79,11 @@
     color: #fff;
     align-items: center;
 
+    &.ar {
+      padding-right: 0;
+      padding-left: 20px;
+    }
+
     .feature__icon {
       text-align: center;
 

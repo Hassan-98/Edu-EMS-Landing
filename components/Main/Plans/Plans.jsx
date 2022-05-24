@@ -1,96 +1,103 @@
-import cls from "./Plans.module.scss";
+import { useTranslation } from 'next-i18next';
 import { Container, Typography, Grid } from '@mui/material';
 import PlanCard from "./Plan/Card";
-
-const plans = [
-  {
-    title: "Demo Ver",
-    price: 0,
-    description: "Demo version of the system with limited capabilities",
-    features: [
-      {
-        text: "Limited program trail time",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Full system guide & explaination",
-        icon: <i className={`fa-duotone fa-circle-xmark`}></i>
-      },
-      {
-        text: "Full system pro features",
-        icon: <i className={`fa-duotone fa-circle-xmark`}></i>
-      },
-      {
-        text: "Support & operation of the system",
-        icon: <i className={`fa-duotone fa-circle-xmark`}></i>
-      },
-      {
-        text: "Source code of the program",
-        icon: <i className={`fa-duotone fa-circle-xmark`}></i>
-      }
-    ],
-  },
-  {
-    title: "Full Ver",
-    price: 149,
-    description: "Full version of the system ready to be used in your center",
-    features: [
-      {
-        text: "Lifetime program no trail",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Full system guide & explaination",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Full system pro features",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Support & operation of the system",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Source code of the program",
-        icon: <i className={`fa-duotone fa-circle-xmark`}></i>
-      }
-    ],
-  },
-  {
-    title: "Source Code",
-    price: 999,
-    description: "Full version with the source code, ready to be customized",
-    features: [
-      {
-        text: "Lifetime program no trail",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Full system guide & explaination",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Full system pro features",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Support & operation of the system",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      },
-      {
-        text: "Source code of the program",
-        icon: <i className={`fa-duotone fa-circle-check ${cls.checked}`}></i>
-      }
-    ],
-  }
-]
+import cls from "./Plans.module.scss";
 
 const Plans = () => {
+  const { t: translate, i18n: { language } } = useTranslation('common');
+  
+  const plans = [
+    {
+      title: translate('plans.plan1.title'),
+      description: translate('plans.plan1.desc'),
+      price: 0,
+      features: [
+        {
+          text: translate('plans.feature1'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature2'),
+          icon: <i className={`fa-duotone fa-circle-xmark ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature3'),
+          icon: <i className={`fa-duotone fa-circle-xmark ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature4'),
+          icon: <i className={`fa-duotone fa-circle-xmark ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature5'),
+          icon: <i className={`fa-duotone fa-circle-xmark ${cls[language]}`}></i>
+        }
+      ],
+    },
+    {
+      title: translate('plans.plan2.title'),
+      description: translate('plans.plan2.desc'),
+      price: 149,
+      features: [
+        {
+          text: translate('plans.feature1Full'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature2'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature3'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature4'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature5'),
+          icon: <i className={`fa-duotone fa-circle-xmark ${cls[language]}`}></i>
+        }
+      ],
+    },
+    {
+      title: translate('plans.plan3.title'),
+      description: translate('plans.plan3.desc'),
+      price: 999,
+      features: [
+        {
+          text: translate('plans.feature1Full'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature2'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature3'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature4'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        },
+        {
+          text: translate('plans.feature5'),
+          icon: <i className={`fa-duotone fa-circle-check ${cls.checked} ${cls[language]}`}></i>
+        }
+      ],
+    }
+  ]
+
   return (
     <Container component="section" id="Plans" className={cls.plans}>
-      <Typography component="h2" color="primary" className={cls.section__title}>Plans</Typography>
-      <Typography variant="body1" component="p" color="primary" className={cls.section__description}>Ready To Get Started ?</Typography>
+      <Typography component="h2" color="primary" className={`${cls.section__title} section_title`}>
+        { translate('Plans') }
+      </Typography>
+      <Typography variant="body1" component="p" color="primary" className={cls.section__description}>
+        { translate('plans.desc') }
+      </Typography>
 
       <Grid container spacing={3}>
         <PlanCard

@@ -1,0 +1,396 @@
+@import "mixins";
+
+/***********| Ready Shared Styles & Elements |***********/
+
+// MAIN BUTTON
+%mainBtn {
+  text-align: center !important;
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color)
+  }
+}
+
+// WISH BUTTON
+%wishBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center !important;
+  font-size: 20px;
+  color: rgb(107, 107, 107);
+  &:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    border: 1px solid var(--main-color);
+  }
+}
+ 
+%mainHeader { 
+  margin-bottom: 30px;
+  font-size: 28px;
+  position: relative;
+  color: var(--main-color);
+  display: inline-block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 18px;
+    z-index: -1;
+    background: linear-gradient(to left, transparent 0%, var(--main-color) 100%);
+    opacity: 0.3;
+  }
+  &.ar {
+    &::before {
+      left: unset;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(to right, transparent 0%, var(--main-color) 100%);
+
+      @include sm {
+        height: 13px;
+      }
+    }
+  }
+
+  @include sm {
+    font-size: 26px;
+    text-align: center!important;
+  }
+}
+
+// Buttons
+%btn {
+  border: 1.5px solid var(--main-color);
+  background: var(--main-color);
+  padding: 11px 35px;
+  color: #000;
+  outline: none !important;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-color: var(--main-color);
+  }
+  @include xs {
+    padding: 6px 25px;
+    font-size: 15px;
+  }
+}
+
+%formBtn {
+  border: 1.5px solid var(--main-color);
+  background: var(--main-color);
+  padding: 11px 35px;
+  color: #fff;
+  outline: none !important;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center !important;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-color: var(--main-color);
+  }
+  @include xs {
+    font-size: 14px;
+  }
+}
+
+// Inputs, Select, Textarea
+%form-element {
+  background: #eeeaf3;
+  border-radius: 5px;
+  border: 1.5px solid var(--light-border);
+  padding: 15px 15px;
+  outline: none;
+  font-size: 17px;
+  resize: none;
+  width: 100%;
+  margin: auto;
+
+  &::placeholder {
+    color: var(--main-color);
+  }
+
+  &:focus {
+    border: 1.5px double var(--light-main-color);
+  }
+
+  @include sm {
+    padding: 12px 12px;
+    font-size: 17px;
+  }
+
+  @include xs {
+    padding: 9px 12px;
+    font-size: 15px;
+  }
+}
+
+// STEP FIELD
+%step-field {
+  background: var(--bg-element);
+  border-radius: 5px;
+  border: 1.5px solid transparent;
+  box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 4%);
+  padding: 15px;
+  outline: none;
+  font-size: 16px;
+  resize: none;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  color: var(--text-color);
+
+  &:focus {
+    border: 1.5px double var(--light-main-color);
+  }
+
+  @include xs {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+}
+
+// DROPDOWNS
+%dropdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-color: transparent;
+  }
+  .dropdownMenu {
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    animation: show 0.1s ease-in-out 1;
+    border: 1px solid rgb(212, 212, 212);
+    z-index: 2;
+    width: 130px;
+    li {
+      cursor: pointer;
+      padding: 5px 10px 5px 10px;
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0 7px;
+        padding: 0 !important;
+        font-size: 15px;
+        color: #002147;
+      }
+      img {
+        border-radius: 2px;
+        width: 20px;
+        height: 15px;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+    &.show {
+      display: block;
+    }
+    @keyframes show {
+      0% {
+        transform: scale(0.8) translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1;
+      }
+    }
+    @include md {
+      left: -40%;
+      li {
+        p {
+          margin: 0 10px;
+        }
+      }
+    }
+    @include sm {
+      left: -40%;
+    }
+    @include xs {
+      left: -40%;
+    }
+  }
+}
+
+// Tables
+%table {
+  max-width: 100%;
+  box-shadow: 0 0 5px rgba($color: #000, $alpha: 0.1);
+  border-radius: 10px;
+  background: #f6f6f6;
+  border-spacing: 0;
+  overflow: hidden;
+  tr {
+    background: #fff;
+    &:first-of-type {
+      background: #f6f6f6;
+      th {
+        border-bottom: 1px solid #eee;
+        padding: 15px 25px;
+        &:first-of-type {
+          border-radius: 10px 0 0 0;
+        }
+        &:last-of-type {
+          border-radius: 0 10px 0 0;
+        }
+      }
+    }
+    &:last-of-type {
+      td {
+        &:first-of-type {
+          border-radius: 0 0 0 10px;
+        }
+        &:last-of-type {
+          border-radius: 0 0 10px 0;
+        }
+      }
+    }
+    td {
+      border-bottom: 1px solid #f1f1f1;
+      padding: 15px 25px;
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// Images
+%resposiveImg {
+  width: 600px;
+  height: 600px;
+  display: inline-block;
+  @include lg {
+    width: 500px;
+    height: 500px;
+  }
+  @include md {
+    width: 380px;
+    height: 380px;
+  }
+  @include sm {
+    margin: 0 auto;
+    width: 350px;
+    height: 350px;
+  }
+  @include xs {
+    margin: 0 auto;
+    width: 350px;
+    height: 300px;
+  }
+}
+
+// Links
+%a {
+  text-decoration: none;
+  color: #002147;
+}
+
+// Tags
+%tag {
+  background: #e1e1e1;
+  color: #000;
+  padding: 4px 9px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba($color: #000, $alpha: 0.15);
+  margin: 0 5px;
+}
+
+// Lists
+%HzList {
+  list-style: none;
+  li {
+    padding: 7px 15px;
+    display: inline-block;
+    i {
+      margin: 0 5px;
+      position: relative;
+      top: 1px;
+      font-size: inherit;
+    }
+  }
+}
+
+%VlList {
+  list-style: none;
+  li {
+    padding: 10px 15px;
+    i {
+      margin: 0 5px;
+      position: relative;
+      top: 1px;
+      font-size: inherit;
+    }
+  }
+}
+
+// Social Icons
+%social-icons {
+  i {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    background: #002147;
+    border: 1px solid #002147;
+    margin: 0 4px;
+    cursor: pointer;
+    &:hover {
+      background: #fff;
+      color: #002147;
+    }
+  }
+}

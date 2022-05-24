@@ -1,0 +1,13 @@
+// IMPORTING GLOBAL VARIABLES AND MIXINS
+@import "../../../styles/extends";
+
+.dropdown {
+  @extend %dropdown;
+  img, h6 {
+    cursor: pointer;
+  }
+  
+  i.colored {
+    color: #0c3890d7;
+  }
+}

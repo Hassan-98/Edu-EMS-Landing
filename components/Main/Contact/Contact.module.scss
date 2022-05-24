@@ -76,6 +76,10 @@
     border-radius: 5px;
     text-align: center;
 
+    p {
+      direction: ltr!important;
+    }
+
     .box__icon {
       box-sizing: border-box;
       width: 70px;
@@ -144,6 +148,14 @@
 
       i {
         margin-right: 10px;
+      }
+
+      &.ar {
+        i {
+          margin-right: 0;
+          margin-left: 10px;
+          transform: rotate(180deg);
+        }
       }
     }
   }

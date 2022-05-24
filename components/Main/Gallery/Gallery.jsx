@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useTranslation } from 'next-i18next';
 import cls from "./Gallery.module.scss"
 import { Typography, NoSsr } from '@mui/material'
 import { Carousel } from "@trendyol-js/react-carousel"
@@ -10,6 +11,7 @@ const screenshots = [];
 for (var i = 1; i <= 21; i++) { screenshots.push(`${i}.png`) };
 
 const Gallery = () => {
+  const { t: translate } = useTranslation('common');
   const [isScreenshotModalOpen, setIsScreenshotModalOpen] = useState(false);
   const [screenshotModalImage, setScreenshotModalImage] = useState(false);
   const [slides, setSlides] = useState(3);
@@ -60,9 +62,11 @@ const Gallery = () => {
     <>
       <div className={cls.section__divider_top}></div>
       <section id="Gallery" className={cls.gallery}>
-        <Typography component="h2" className={cls.section__title}>Screens</Typography>
+        <Typography component="h2" className={`${cls.section__title} section_title`}>
+          { translate('screenshot.title') }
+        </Typography>
         <Typography variant="body1" component="p" color="primary" className={cls.section__description}>
-          Screenshots for each page & interface of the program
+          { translate('screenshot.desc') }
         </Typography>
 
         <NoSsr>
@@ -73,6 +77,7 @@ const Gallery = () => {
             responsive={true}
             rightArrow={<i className={`fa-duotone fa-chevrons-right ${cls.rightArrow}`}></i>}
             leftArrow={<i className={`fa-duotone fa-angles-left ${cls.leftArrow}`}></i>}
+            style={{ direction: 'ltr' }}
           >
             {
               screenshots.map((screenshot, idx) => (

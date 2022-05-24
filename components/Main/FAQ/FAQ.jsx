@@ -1,63 +1,80 @@
-import cls from "./FAQ.module.scss"
+import { useTranslation } from 'next-i18next';
 import { Container, Box, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import cls from "./FAQ.module.scss";
 
 const FAQ = () => {
+  const { t: translate, i18n: { language } } = useTranslation('common');
+
   return (
     <>
       <section id="FAQ" className={cls.faq}>
       <div className={cls.section__divider_top}></div>
         <Box sx={{ bgcolor: 'primary.main' }}>
           <Container maxWidth="md" sx={{ alignItems: "center", display: 'flex', flexWrap: 'wrap', py: { xs: '30px', md: '10px' } }}>
-            <Typography component="h2" className={cls.section__title}>FAQ</Typography>
-            <Typography variant="body1" component="p" className={cls.section__description}>Frequently Asked Questions</Typography>
+            <Typography component="h2"  className={`${cls.section__title} section_title`}>
+              { translate('FAQ') }
+            </Typography>
+            <Typography variant="body1" component="p" className={cls.section__description}>
+              { translate('faq.desc') }
+            </Typography>
 
-            <Accordion defaultExpanded={true} sx={{ borderRadius: "10px!important", mb: 1 }}>
+            <Accordion defaultExpanded={true} sx={{ borderRadius: "10px!important", mb: 1, width: '100%' }}>
               <AccordionSummary className={cls.accordion__summary}>
-                <i className="fa-duotone fa-circle-question"></i>
-                <Typography component="p">How can i try the program ?</Typography>
+                <i className={`fa-duotone fa-circle-question ${cls[language]}`}></i>
+                <Typography component="p">
+                  { translate('faq.question1.q') }
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={cls.accordion__details}>
-                You can just request the demo version of the system, it&apos;s totally free, but it has limited trail time and less features and capabilities
+                { translate('faq.question1.a') }
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ borderRadius: "10px!important", mb: 1 }}>
+            <Accordion sx={{ borderRadius: "10px!important", mb: 1, width: '100%' }}>
               <AccordionSummary className={cls.accordion__summary}>
-                <i className="fa-duotone fa-circle-question"></i>
-                <Typography component="p">Is system works with any operating system ?</Typography>
+                <i className={`fa-duotone fa-circle-question ${cls[language]}`}></i>
+                <Typography component="p">
+                  { translate('faq.question2.q') }
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={cls.accordion__details}>
-                No, the program only tested on Win 7 - 10 - 11, it&apos;s not developed to work with any other operating system such as Linux or MacOs
+                { translate('faq.question2.a') }
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ borderRadius: "10px!important", mb: 1 }}>
+            <Accordion sx={{ borderRadius: "10px!important", mb: 1, width: '100%' }}>
               <AccordionSummary className={cls.accordion__summary}>
-                <i className="fa-duotone fa-circle-question"></i>
-                <Typography component="p">How can i request the full version ?</Typography>
+                <i className={`fa-duotone fa-circle-question ${cls[language]}`}></i>
+                <Typography component="p">
+                  { translate('faq.question3.q') }
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={cls.accordion__details}>
-                You can send us a request for full version and type your contact info and we will contact you as soon as possible
+                { translate('faq.question3.a') }
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ borderRadius: "10px!important", mb: 1 }}>
+            <Accordion sx={{ borderRadius: "10px!important", mb: 1, width: '100%' }}>
               <AccordionSummary className={cls.accordion__summary}>
-                <i className="fa-duotone fa-circle-question"></i>
-                <Typography component="p">Can i use full version on multiple devices?</Typography>
+                <i className={`fa-duotone fa-circle-question ${cls[language]}`}></i>
+                <Typography component="p">
+                  { translate('faq.question4.q') }
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={cls.accordion__details}>
-                No, you can&apos;t run the program on multiple devices unless you buy another serial number or cancel the first one
+                { translate('faq.question4.a') }
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ borderRadius: "10px!important", mb: 1 }}>
+            <Accordion sx={{ borderRadius: "10px!important", mb: 1, width: '100%' }}>
               <AccordionSummary className={cls.accordion__summary}>
-                <i className="fa-duotone fa-circle-question"></i>
-                <Typography component="p">Which languages used to develop the program ?</Typography>
+                <i className={`fa-duotone fa-circle-question ${cls[language]}`}></i>
+                <Typography component="p">
+                  { translate('faq.question5.q') }
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={cls.accordion__details}>
-                The program developed using web technologies such as HTML, CSS, Scss, React.js, Electron.js, Node.js, Express and MongoDB
+                { translate('faq.question5.a') }
               </AccordionDetails>
             </Accordion>
           </Container>

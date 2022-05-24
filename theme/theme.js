@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 export const ThemeContext = createContext();
 
-function ThemeContextProvider({ children }) {
+function ThemeContextProvider({ children, locale }) {
 
   const theme = useMemo(() =>
     createTheme({
@@ -27,9 +27,9 @@ function ThemeContextProvider({ children }) {
         }
       },
       typography: {
-        fontFamily: "SpaceGrotesk"
+        fontFamily: locale === "ar" ? "BalooBhaijaan2" : "SpaceGrotesk"
       }
-    }), []);
+    }), [locale]);
 
   return (
     <ThemeContext.Provider value={theme}>

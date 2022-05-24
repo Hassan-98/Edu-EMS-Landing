@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { Grid, Container, Typography, Box, Button, Tooltip } from "@mui/material"
-import Image from "next/image"
-import cls from "./About.module.scss"
+import { useTranslation } from 'next-i18next';
+import { Grid, Container, Typography, Box, Button, Tooltip } from "@mui/material";
+import cls from "./About.module.scss";
 
 const About = () => {
+  const { t: translate, i18n: { language } } = useTranslation('common');
   
   const handleClick = () => {
     window.location.hash = "#Contact"
@@ -16,11 +17,14 @@ const About = () => {
           <img src="/imgs/Edu-Thumb.jpg" alt="Edu Thumb" />
         </Grid>
         <Grid item md={6} sm={12}>
-          <Typography variant="h5" component="p" color="primary" sx={{ mb: { xs: '35px', md: '20px' } }}>Our System</Typography>
-          <Typography variant="h3" component="h2" color="primary" sx={{ fontFamily: "LittleGroovyRegular", mb: 2 }}>Edu EMS</Typography>
+          <Typography variant="h5" component="p" color="primary" sx={{ mb: { xs: '35px', md: '20px' } }}>
+            { translate('about.sub_title') }
+          </Typography>
+          <Typography variant="h3" component="h2" color="primary" sx={{ fontFamily: "LittleGroovyRegular", mb: 2 }}>
+            { translate('about.title') }
+          </Typography>
           <Typography variant="body1" color="primary" sx={{ mb: 3, lineHeight: '30px' }}>
-            Edu. EMS is an educational center management system that has many features that make it distinct from other educational center management programs.
-            Our program simply created based on web technologies, React.js, Scss, Node.js, MongoDB and Electron.js
+            { translate('about.text') }
           </Typography>
           <Box className={cls.presentaion__icons}>
           <Tooltip title="Educational">
@@ -34,8 +38,8 @@ const About = () => {
           </Tooltip>
           </Box>
           <Button variant="outlined" color="primary" className={cls.request__button} onClick={handleClick}>
-            <i className="fi fi-rr-cloud-check" style={{ margin: '3px 5px 0 0' }}></i>
-            Request Demo Version
+            <i className="fa-regular fa-download" style={{ margin: language === 'en' ? '00 5px 0 0':'0 0 0 5px' }}></i>
+            { translate('header.button') }
           </Button>
         </Grid>
       </Grid>
