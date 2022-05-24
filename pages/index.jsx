@@ -18,7 +18,7 @@ const Home = () => {
   )
 }
 
-export const getServerSideProps = async ({ locale }) => {
+export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"]))
